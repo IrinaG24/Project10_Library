@@ -17,9 +17,9 @@ void String::copyString(const String& other) {
 }
 
 ///изтрива задалената памет
-void String::deleteString() {
+/*void String::deleteString() {
 	delete[] arr;
-}
+}*/
 
 ///добавя елемент към низа
 void String::addToString(const char c) {
@@ -47,13 +47,14 @@ String::String(const String& other) {
 }
 String& String::operator=(const String& other) {
 	if (this != &other) {
-		deleteString();
+		//deleteString();
+		delete[] arr;
 		copyString(other);
 	}
 	return *this;
 }
 String::~String() {
-	deleteString();
+	delete[] arr;
 }
 
 /// връща дължината на низа
@@ -84,21 +85,32 @@ String String:: operator+(const String& toAdd) {
 
 ///
 String& String::operator+=(const String& toAdd) {
+	String c;
 	lenght += toAdd.lenght;
-	char* temp = new char[lenght + 1];
-	/*
+	char* temp;
+	temp = new char[lenght + 1];
 	try {
-		
+		temp = new char[lenght + 1];
 	}
 	catch (...) {
 		std::cerr << "Allocation failed!" << std::endl;
-		return;
-	}*/
+		return c;
+	}
 	strcpy(temp, arr);
-	deleteString();
+	//deleteString(); 
+	delete[] arr;
 	strcat(temp, toAdd.arr);
 	arr = temp;
 	return *this;
+}
+
+bool String::operator>(const String& other) const {
+	if (strcmp(arr, other.arr) > 0) return true;
+	else return false;
+}
+bool String::operator<(const String& other) const {
+	if (strcmp(arr, other.arr) < 0) return true;
+	else return false;
 }
 
 /// предефиниране на оператори за въвеждане

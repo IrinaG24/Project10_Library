@@ -8,7 +8,7 @@ private:
 	int lenght;
 
 	void copyString(const String&);
-	void deleteString();
+
 	void addToString(const char);
 public:
 	String(const char* = "");
@@ -23,6 +23,9 @@ public:
 	const char& operator[](const int)const;
 	String operator+(const String&);
 	String& operator+=(const String&);
+
+	bool operator>(const String&) const;
+	bool operator<(const String&) const;
 
 	friend std::istream& operator>>(std::istream&, String&);
 	friend std::ostream& operator<<(std::ostream&, const String&);
