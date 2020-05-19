@@ -108,7 +108,7 @@ void BooksStorage::findBook(String option, String toSearch) {
 				}
 			}
 		}
-		if (flag==0) std::cout << "This book is not found!" << std::endl;	
+		if (flag==0) std::cout << "This book is not found!" << std::endl;
 	}
 }
 
@@ -247,4 +247,15 @@ void BooksStorage::removeBook(const Book& toRemove) {
 	delete[] books;
 	books = temp;
 	numberOfBooks--;
+}
+int BooksStorage:: getNumberOfBooks()const {
+	return numberOfBooks;
+}
+
+
+Book& BooksStorage:: operator[](const int index) {
+	return books[index];
+}
+const Book& BooksStorage::operator[](const int index)const {
+	return books[index];
 }

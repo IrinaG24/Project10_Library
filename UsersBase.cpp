@@ -85,7 +85,7 @@ void UsersBase::userRemove(const User& toRemove) {
 		std::cerr << "Allocation failed!" << std::endl;
 		return;
 	}
-	
+
 	for (int i = 0; i < indexToFind; i++)
 		temp[i] = users[i];
 
@@ -95,4 +95,23 @@ void UsersBase::userRemove(const User& toRemove) {
 	delete[] users;
 	users = temp;
 	numberOfUsers--;
+}
+
+int UsersBase::getNumberOfUsers()const {
+	return numberOfUsers;
+}
+
+bool UsersBase::isThereLoggedUser()const {
+	for (int i = 0; i < numberOfUsers; i++) {
+		if (users[i].isLogged() == true) return true;
+	}
+	return false;
+}
+
+User& UsersBase::operator[](const int index) {
+	return users[index];
+}
+
+const User& UsersBase::operator[](const int index)const {
+	return users[index];
 }

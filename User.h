@@ -6,14 +6,16 @@ class User {
 private:
 	String userName;
 	String password;
-	int level; 
+	int level;
 	bool logged;
 public:
 	User();
 	User(String, String, int);
 
 	bool operator==(const User&) const;
+
 	bool isLogged()const;
+	bool isAdministrator()const;
 
 	void setLogged(bool);
 	String getUserName()const;

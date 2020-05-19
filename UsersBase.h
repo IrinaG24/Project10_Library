@@ -4,7 +4,7 @@
 #include "User.h"
 
 class UsersBase {
-private: 
+private:
 	User* users;
 	int capacity;
 	int numberOfUsers;
@@ -21,7 +21,13 @@ public:
 	void userAdd(const User&);
 	void userRemove(const User&);
 
+	int getNumberOfUsers()const;
 
+	bool isThereLoggedUser()const;
+
+	User& operator[](const int);
+
+	const User& operator[](const int index)const;
 };
 
-#endif 
+#endif

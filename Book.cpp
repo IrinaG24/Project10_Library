@@ -61,3 +61,7 @@ bool Book:: operator==(const Book& find) {
 	if (author == find.author && title == find.title && genre == find.genre && year==find.year && ID == find.ID) return true;
 	else return false;
 }
+
+int Book:: getID()const {
+	return ID;
+}

@@ -14,12 +14,18 @@ User::User(String userName_, String password_, int level_) {
 }
 
 bool User::operator==(const User& other) const {
-	if (userName == other.userName) return true;
+	if (userName == other.userName && password==other.password) return true;
 	else return false;
 }
 
+
 bool User::isLogged()const {
 	if (logged == true) return true;
+	else return false;
+}
+
+bool User::isAdministrator()const {
+	if (level == 2) return true;
 	else return false;
 }
 

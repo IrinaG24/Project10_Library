@@ -23,6 +23,7 @@ public:
 	String getAuthor()const;
 	int getYear()const;
 	int getRating()const;
+	int getID()const;
 	String getKeyWords()const;
 
 	bool operator==(const Book&);
