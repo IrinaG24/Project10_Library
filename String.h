@@ -30,6 +30,7 @@ public:
 	friend std::istream& operator>>(std::istream&, String&);
 	friend std::ostream& operator<<(std::ostream&, const String&);
 	friend void getline(std::istream&, String&);
+	friend void getline(std::istream&, String&, char);
 };
 
 #endif

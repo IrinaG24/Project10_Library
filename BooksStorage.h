@@ -6,14 +6,6 @@ class BooksStorage {
 private:
 	Book* books;
 	int numberOfBooks;
-	int capacity;#ifndef BOOKSSTORAGE_H_
-#define BOOKSSTORAGE_H_
-#include "Book.h"
-
-class BooksStorage {
-private:
-	Book* books;
-	int numberOfBooks;
 	int capacity;
 
 	void copyStorage(const BooksStorage&);
@@ -26,15 +18,24 @@ public:
 	BooksStorage& operator=(const BooksStorage&);
 	~BooksStorage();
 
-	void booksPrint();
-	void findBook(String, String);
-	void sortBooks(String, String = "asc");
+	void booksPrint() const;
+	void findBook(String, String) const;
+	void sortBooks(String);
 	void addBook(const Book&);
 	void removeBook(const Book&);
-
+	
 	int getNumberOfBooks()const;
 	Book& operator[](const int );
 	const Book& operator[](const int )const;
+
+
+	void deleteArray() {
+		delete[] books;
+		capacity = 1;
+		numberOfBooks = 0;
+	}
+
 };
+
 
 #endif

@@ -16,11 +16,6 @@ void String::copyString(const String& other) {
 	lenght = other.lenght;
 }
 
-///изтрива задалената памет
-/*void String::deleteString() {
-	delete[] arr;
-}*/
-
 ///добавя елемент към низа
 void String::addToString(const char c) {
 	char charToAdd[2];
@@ -88,9 +83,10 @@ String& String::operator+=(const String& toAdd) {
 	String c;
 	lenght += toAdd.lenght;
 	char* temp;
-	temp = new char[lenght + 1];
+
+	//temp= new char[lenght + 1];
 	try {
-		temp = new char[lenght + 1];
+		temp= new char[lenght + 1];
 	}
 	catch (...) {
 		std::cerr << "Allocation failed!" << std::endl;
@@ -133,6 +129,18 @@ void getline(std::istream& is, String& toCin) {
 
 	is.get(element);
 	while (element != '\n') {
+		toRead.addToString(element);
+		is.get(element);
+	}
+	toCin = toRead;
+}
+
+void getline(std::istream& is, String& toCin, char c) {
+	String toRead;
+	char element;
+
+	is.get(element);
+	while (element != c) {
 		toRead.addToString(element);
 		is.get(element);
 	}
