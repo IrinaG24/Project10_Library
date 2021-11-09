@@ -1,1 +1,1 @@
-# Project10_Library
+An amature university project for OOP
